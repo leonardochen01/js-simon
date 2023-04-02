@@ -16,6 +16,7 @@ function randomNumberGenerator() {
       numberList.push(randomNumber);
     }
   }
+  console.log(`I numeri generati casualmente sono: ${numberList}`);
 
   let container = document.querySelector(".numbers");
   let output = numberList.join(" - ");
@@ -25,9 +26,27 @@ function randomNumberGenerator() {
     container.classList.add("hide");
   }
 
-  setTimeout(numberDisappear, 5000);
+  setTimeout(numberDisappear, 4000);
 
+  setTimeout(verify, 5000);
 
+  function verify() {
+    const userNumberList = [];
+    for (let i = 1; i <= 5; i++) {
+      let userNumber = parseInt(prompt(`Inserisci il ${i}° numero che hai visto`));
+      userNumberList.push(userNumber);
+      console.log(`Hai inserito i numeri: ${userNumberList}`);
+    }
+
+    const userNumberString = userNumberList.toString();
+    const randomNumberString = numberList.toString();
+
+    if (userNumberString === randomNumberString) {
+      console.log("Hai indovinato tutti i numeri!")
+    } else {
+      console.log("Non hai indovinato tutti i numeri!")
+    }
+  }
 
 }
 
