@@ -16,7 +16,19 @@ function randomNumberGenerator() {
       numberList.push(randomNumber);
     }
   }
-  console.log(numberList)
+
+  let container = document.querySelector(".numbers");
+  let output = numberList.join(" - ");
+  container.innerHTML = output;
+
+  function numberDisappear() {
+    container.classList.add("hide");
+  }
+
+  setTimeout(numberDisappear, 5000);
+
+
+
 }
 
 
